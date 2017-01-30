@@ -1,3 +1,29 @@
 .twittlers {
+	color: white;
+}
+
+#awesome{
+	background: none;
+	border: none;
+	color: white;
+	padding-right: 0;
+	margin-right: 0;
+}
+#awesome:hover{
+	font-style: bold;
 	color: red;
+}
+.btn{
+	background-color:#33cc33;
+	border: none;
+    color: white;
+    padding: 3px 3px;
+    display: inline-block;
+    font-size: 16px;
+}
+body {
+	background: #0099ff;
+}
+h1 {
+	color:#ff66cc;
 }

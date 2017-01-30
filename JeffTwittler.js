@@ -9,9 +9,9 @@ $(document).ready(function(){
         var $user = $('<button type="button"></button>');
         $user.addClass(tweet.user);
         $user.attr("ID","awesome");
-        $user.text('@' + tweet.user);
+        $user.text('@' + tweet.user +":");
         var time = timeStampRead(tweet.created_at);
-        $tweet.text(': ' + tweet.message + "; " + time);
+        $tweet.text(tweet.message + "; " + time);
         //$tweet.addClass(tweet.user);
         $user.appendTo($body);
         $tweet.appendTo($body);
@@ -30,9 +30,9 @@ $('.recent').click(function(){
             var $user = $('<button type="button"></button>');
             $user.addClass(tweet.user);
             $user.attr("ID","awesome");
-            $user.text('@' + tweet.user);
+            $user.text('@' + tweet.user +":");
             var time = timeStampRead(tweet.created_at);
-        	$tweet.text(': ' + tweet.message + "; " + time);
+        	$tweet.text(tweet.message + "; " + time);
             $tweet.addClass(tweet.user);
             $user.appendTo($body);
         	$tweet.appendTo($body);
@@ -52,9 +52,9 @@ $('.all').click(function(){
             var $user = $('<button type="button"></button>');
             $user.addClass(tweet.user);
             $user.attr("ID","awesome");
-            $user.text('@' + tweet.user);
+            $user.text('@' + tweet.user +":");
             var time = timeStampRead(tweet.created_at);
-            $tweet.text(': ' + tweet.message + "; " + time);
+            $tweet.text(tweet.message + "; " + time);
             $tweet.addClass(tweet.user);
             $user.appendTo($body);
             $tweet.appendTo($body);
@@ -78,14 +78,18 @@ var timeStampRead = function(timeStamp) {
 $(document).on("click", "#awesome", function(){
             var $body = $('.twittlers');
             $('div').text('');
-            console.log("button pressed")
             var index = streams.home.length - 1;
             while(index >= 0){
                 var tweet = streams.home[index];
                 var $tweet = $('<div></div>');
+                var $user = $('<button type="button"></button>');
+                $user.addClass(tweet.user);
+                $user.attr("ID","awesome");
+                $user.text('@' + tweet.user +":");
                 var time = timeStampRead(tweet.created_at);
-                $tweet.text('@' + tweet.user + ': ' + tweet.message + "; " + time);
+                $tweet.text(tweet.message + "; " + time);
                 if (tweet.user === $(this).attr("class")) {
+                    $user.appendTo($body);
                     $tweet.appendTo($body);
         }
         index -= 1;
